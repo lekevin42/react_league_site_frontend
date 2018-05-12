@@ -5,12 +5,13 @@ import {AppContainer} from "react-hot-loader";
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import Dashboard from './components/Dashboard';
+import Champion from './components/championComponents/Champion';
 import {useStrict} from "mobx";
 import {Provider} from "mobx-react";
 
 import championStore from './stores/championStore';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './css/custom.css';
 
 const stores = {
   championStore
@@ -24,15 +25,15 @@ const renderApp = Component => {
         <div>
 
 
-           <Route exact path="/" component={Dashboard} />
+           <Route exact path="/" component={Champion} />
          </div>
       </Router>
       </Provider>
   </AppContainer>, document.getElementById("root"));
 };
 
-renderApp(Dashboard);
+renderApp(Champion);
 
 if (module.hot) {
-  module.hot.accept(() => renderApp(Dashboard));
+  module.hot.accept(() => renderApp(Champion));
 }

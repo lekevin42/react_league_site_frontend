@@ -6,7 +6,7 @@ const superagent = superagentPromise(_superagent, global.Promise);
 
 const env = process.env.NODE_ENV || 'development';
 
-let API_ROOT = env === 'production' ?  'http://origincommodity.com/api' : 'http://localhost:3000/api';
+let API_ROOT = env === 'production' ?  '' : 'http://localhost:3001/api';
 
 //const API_ROOT_SINGLE_CHAMPIONS = 'https://na1.api.riotgames.com/lol/static-data/v3/champions/';
 
@@ -34,7 +34,8 @@ const requests = {
 
 
 const Champions = {
-  getSingleChampion: (id) => requests.get(`/singlechampion/${id}`)
+  getSingleChampion: (id) => requests.get(`/singlechampion/${id}`),
+  getChampionArt: () => superagent.get('https://ddragon.leagueoflegends.com/cdn/7.10.1/img/champion/Annie.png').end(handleErrors).then(responseBody)
 }
 
 export default {Champions};

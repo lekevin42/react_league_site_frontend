@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Input, FormGroup, Label} from 'reactstrap';
+import {Button, Input, FormGroup, Label, Row, Col, Container, Jumbotron, Carousel} from 'reactstrap';
 import { inject, observer } from 'mobx-react';
 import {withRouter} from 'react-router-dom';
 import {
@@ -11,8 +11,9 @@ import {
   isObservable
 } from 'mobx';
 
+import ChampionCarousel from './ChampionCarousel';
 
-class Dashboard extends Component {
+class Champion extends Component {
   constructor(props) {
     super(props);
 
@@ -29,22 +30,28 @@ class Dashboard extends Component {
     this.props.championStore.querySingleChampion();
   }
 
+//add function to check and return appropriate tags
 
 
   render() {
-    console.log(process.env);
-    console.log(this.props);
+    console.log(this.props.championStore.singleChampionData);
     return (
       <div>
       <FormGroup>
-        <Label for="championSearchID">Purchase Order ID</Label>
         <Input type="text" name="championSearchID" id="championSearchID" placeholder="Enter a champion"  onChange={this.callChangeSingleChampionID}/>
       </FormGroup><Button onClick={this.callQuerySingleChampion}>Click</Button>
-        <p>LUL</p>
+
+
+
+        <ChampionCarousel/>
+
+
+
+
       </div>
     )
   }
 }
-Dashboard = inject('championStore')(observer(Dashboard))
+Champion = inject('championStore')(observer(Champion))
 
-export default Dashboard;
+export default Champion;

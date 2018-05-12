@@ -3,21 +3,28 @@ import agent from '../agent';
 
 class ChampionStore {
   singleChampionID = '';
+  singleChampionData = { championData : {
+    'name': '',
+    'championArt': '',
+    'image': {'full': ''}
+
+  }};
 
   changeSingleChampionID(id) {
     this.singleChampionID = id;
   }
 
   querySingleChampion(){
-    console.log(this.singleChampionID);
-    agent.Champions.getSingleChampion(this.singleChampionID).then((body)=>{
-      console.log(body);
+    agent.Champions.getSingleChampion(this.singleChampionID).then((data)=>{
+      this.singleChampionData = data;
     });
+
   }
 }
 
 decorate(ChampionStore, {
   singleChampionID: observable,
+  singleChampionData: observable,
   changeSingleChampionID: action
 });
 
