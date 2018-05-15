@@ -1,7 +1,18 @@
 .test{
-  height: 30%;
-  width: 30%;
-  left: 35%;
+  height: 50%;
+  width: 50%;
+  margin:auto;
   position: relative;
 
+}
+
+.t{
+  background-image: url('bg.png');
+  background-size: cover;
+  opacity: 0.2;
+}
+
+.border {
+    border: 1px solid black;
+    padding-bottom: 10px;
 }

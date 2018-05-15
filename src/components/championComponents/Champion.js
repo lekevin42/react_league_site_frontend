@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Button, Input, FormGroup, Label, Row, Col, Container, Jumbotron, Carousel} from 'reactstrap';
+import {Button, Input, FormGroup, Label, Row, Col, Container, Jumbotron, Carousel, Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle} from 'reactstrap';
 import { inject, observer } from 'mobx-react';
 import {withRouter} from 'react-router-dom';
 import {
@@ -42,8 +43,15 @@ class Champion extends Component {
       </FormGroup><Button onClick={this.callQuerySingleChampion}>Click</Button>
 
 
+      <Container className="border">
+        <Row>
+        <ChampionCarousel data={this.props.championStore.singleChampionSkins}/>
+        </Row>
+        <Row>
+        <Col sm={{size: "3", offset: 3}}></Col> <Col sm={{size: "4", offset: 2}}></Col>
 
-        <ChampionCarousel/>
+        </Row>
+      </Container>
 
 
 
