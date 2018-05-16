@@ -13,6 +13,7 @@ import {
 } from 'mobx';
 
 import ChampionCarousel from './ChampionCarousel';
+import ChampionStats from './ChampionStats';
 
 class Champion extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class Champion extends Component {
         </Row>
         <Row>
         <Col sm={{size: "3", offset: 3}}></Col> <Col sm={{size: "4", offset: 2}}></Col>
-
+        <ChampionStats data={this.props.championStore.singleChampionData}/>
         </Row>
       </Container>
 
