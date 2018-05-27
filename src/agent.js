@@ -35,7 +35,8 @@ const requests = {
 
 const Champions = {
   getSingleChampion: (id) => requests.get(`/singlechampion/${id}`),
-  getChampionArt: () => superagent.get('https://ddragon.leagueoflegends.com/cdn/7.10.1/img/champion/Annie.png').end(handleErrors).then(responseBody)
+  getAllChampions: () => requests.get('/champions/all'),
+  deleteAllChampions: () => requests.del('/champions/deleteall')
 }
 
 export default {Champions};
