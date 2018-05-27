@@ -1,16 +1,10 @@
 import React, {Component} from 'react';
 import {when} from 'mobx';
 import { inject, observer } from 'mobx-react';
-import {Button, Container, Row, Col} from 'reactstrap';
+import {Container, Row, Col} from 'reactstrap';
 
 
 class LandingPage extends Component{
-  constructor(props){
-    super(props);
-
-
-  }
-
   getNewChampionData(){
     this.props.championStore.deleteAllChampionData();
     when(() => this.props.championStore.deletedAllChampionData, () => this.props.championStore.getAllChampions(),);

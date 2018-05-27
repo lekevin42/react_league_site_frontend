@@ -10,7 +10,7 @@ let API_ROOT = env === 'production' ?  '' : 'http://localhost:3001/api';
 
 //const API_ROOT_SINGLE_CHAMPIONS = 'https://na1.api.riotgames.com/lol/static-data/v3/champions/';
 
-const encode = encodeURIComponent;
+//const encode = encodeURIComponent;
 
 const handleErrors = err => {
   if (err && err.response && err.response.status === 401) {

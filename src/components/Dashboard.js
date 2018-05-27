@@ -1,15 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Input, FormGroup, Label} from 'reactstrap';
 import { inject, observer } from 'mobx-react';
-import {withRouter} from 'react-router-dom';
-import {
-  observable,
-  extendObservable,
-  action,
-  when,
-  toJS,
-  isObservable
-} from 'mobx';
 
 
 class Dashboard extends Component {

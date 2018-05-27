@@ -1,13 +1,10 @@
 import React from 'react';
-import {render, ReactDOM} from 'react-dom';
-import {Route, Link, BrowserRouter as Router} from 'react-router-dom';
+import {render} from 'react-dom';
+import {Route, BrowserRouter as Router} from 'react-router-dom';
 import {AppContainer} from "react-hot-loader";
 import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
 import LandingPage from './components/landingPageComponents/LandingPage';
 import Champion from './components/championPageComponents/Champion';
-import {useStrict} from "mobx";
 import {Provider} from "mobx-react";
 
 import Dashboard from './components/Dashboard';

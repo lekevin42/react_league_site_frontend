@@ -2,11 +2,6 @@ import React, {Component} from 'react';
 
 
 class ChampionStats extends Component {
-  constructor(props){
-    super(props);
-
-  }
-
   render(){
     console.log(this.props.data);
     /*const {

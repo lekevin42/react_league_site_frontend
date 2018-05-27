@@ -1,17 +1,6 @@
 import React, {Component} from 'react';
-import {Button, Input, FormGroup, Label, Row, Col, Container, Jumbotron, Carousel, Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle} from 'reactstrap';
+import {Button, Input, FormGroup, Row, Col, Container} from 'reactstrap';
 import { inject, observer } from 'mobx-react';
-import {withRouter} from 'react-router-dom';
-import {
-  observable,
-  extendObservable,
-  action,
-  when,
-  toJS,
-  isObservable
-} from 'mobx';
-
 import ChampionCarousel from './ChampionCarousel';
 import ChampionStats from './ChampionStats';
 
