@@ -16,3 +16,10 @@
     border: 1px solid black;
     padding-bottom: 10px;
 }
+
+.championIcon {
+  width: 75px;
+  height: 75px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+}

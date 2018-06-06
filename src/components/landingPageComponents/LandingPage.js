@@ -10,9 +10,20 @@ class LandingPage extends Component{
     when(() => this.props.championStore.deletedAllChampionData, () => this.props.championStore.getAllChampions(),);
   }
 
+  createIcons() {
+    let columnData = [];
+
+    this.props.championStore.championIconList.map((chunk) => {
+      chunk.map((url) => {
+        columnData.push(<img src={url} className="championIcon"/>)
+      })
+    })
+
+    return columnData;
+  }
+
   componentDidMount(){
-    console.log("Loading Data");
-    this.getNewChampionData();
+    this.props.championStore.getChampionHeaderData();
   }
 
   render(){
@@ -20,14 +31,8 @@ class LandingPage extends Component{
 
       <Container>
         <div>LandingPage</div>
-        <Row>
-          <Col>a</Col>
-          <Col>a</Col>
-          <Col>a</Col>
-          <Col>a</Col>
-          <Col>a</Col>
-          <Col>a</Col>
-        </Row>
+
+        {this.createIcons()}
       </Container>
     )
   }

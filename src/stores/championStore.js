@@ -11,6 +11,9 @@ class ChampionStore {
   }};
   singleChampionSkins = [];
   deletedAllChampionData = false;
+  loadedChampionHeader = false;
+  championHeaderData = {};
+  championIconList = [];
 
   changeSingleChampionID(id) {
     this.singleChampionID = id;
@@ -47,6 +50,29 @@ class ChampionStore {
    });
  }
 
+ getChampionHeaderData() {
+   this.loadedChampionHeader = false;
+   let counter = 0;
+   agent.Champions.getChampionHeaderData().then((championHeaderData) => {
+     this.championHeaderData = championHeaderData.success.header[0];
+
+
+     let tempList = [];
+     Object.keys(this.championHeaderData.keys).map((key) => {
+       if (counter % 6 === 0){
+         this.championIconList.push(tempList);
+         tempList = [];
+       }
+       tempList.push('http://ddragon.leagueoflegends.com/cdn/' + this.championHeaderData.version + '/img/champion/' + this.championHeaderData.keys[key] + '.png');
+       counter += 1;
+     })
+
+     if (tempList.length > 0) this.championIconList.push(tempList);
+   }).finally(action(()=> {
+     this.loadedChampionHeader = true;
+   }));
+ }
+
 }
 
 
@@ -56,6 +82,8 @@ decorate(ChampionStore, {
   singleChampionData: observable,
   singleChampionSkins: observable,
   deletedAllChampionData: observable,
+  loadedChampionHeader: observable,
+  championIconList: observable,
   changeSingleChampionID: action
 });
 

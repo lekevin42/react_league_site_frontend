@@ -27,7 +27,6 @@ const requests = {
   get: url => superagent.get(`${API_ROOT}${url}`).end(handleErrors).then(responseBody),
   put: (url, body) => superagent.put(`${API_ROOT}${url}`, body).end(handleErrors).then(responseBody),
   post: (url, body) => superagent.post(`${API_ROOT}${url}`, body).end(handleErrors).then(responseBody),
-  //getSingleChampion: id => superagent.get(`${API_ROOT_SINGLE_CHAMPIONS}${id}?locale=en_US&champData=all&tags=all&api_key=${process.env.REACT_APP_LOL_API_KEY}`).end(handleErrors).then(responseBody)
 };
 
 
@@ -36,7 +35,8 @@ const requests = {
 const Champions = {
   getSingleChampion: (id) => requests.get(`/singlechampion/${id}`),
   getAllChampions: () => requests.get('/champions/all'),
-  deleteAllChampions: () => requests.del('/champions/deleteall')
+  deleteAllChampions: () => requests.del('/champions/deleteall'),
+  getChampionHeaderData: () => requests.get('/champions/championheader')
 }
 
 export default {Champions};
